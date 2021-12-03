@@ -20,7 +20,7 @@ char[] epsilonRateBits = new char[bits];
 for (int i = 0; i < bits; i++)
 {
     int lowBitCount = diagnostics.Count(d => d[i] == '0');
-    int highBitCount = diagnostics.Count(d => d[i] == '1');
+    int highBitCount = diagnostics.Count - lowBitCount;
     
     gammaRateBits[i] = lowBitCount > highBitCount ? '0' : '1';
     epsilonRateBits[i] = lowBitCount > highBitCount ? '1' : '0';
