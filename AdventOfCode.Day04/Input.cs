@@ -26,13 +26,13 @@ public class Input
             .Skip(1)
             .Chunk(5)
             .Select(boardLines =>
-                new Board(GetSquares(boardLines.ToList())))
+                new Board(GetSquares(boardLines)))
             .ToList();
 
         return (numbers, boards);
     }
 
-    private IList<Square> GetSquares(List<string> input)
+    private IList<Square> GetSquares(IEnumerable<string> input)
     {
         // The squares are separated by a line for each row and by a space
         // for each value within the row.
