@@ -32,7 +32,7 @@ public class PartOne
 
         if (winningSquares.Any())
         {
-            // Group the winning square by row and column. If we have 5 winning 
+            // Group the winning squares by row and column. If we have 5 winning 
             // squares for a single row or column, then we have a winning board.
             var rows = winningSquares
                 .GroupBy(s => s.Row)
