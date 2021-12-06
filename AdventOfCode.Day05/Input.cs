@@ -7,7 +7,7 @@ public class Input
         var lines = input
             .Split('\r', '\n')
             .Select(line => line.Split(' ', StringSplitOptions.RemoveEmptyEntries))
-            .Select((values, index) => 
+            .Select(values => 
             {
                 int[] start = values[0].Split(',').Select(int.Parse).ToArray();
                 int[] end = values[2].Split(',').Select(int.Parse).ToArray();
