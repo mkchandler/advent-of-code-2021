@@ -4,14 +4,13 @@ public class PartTwo
 {
     public int GetOverlapCount(IEnumerable<Line> lines)
     {
-        var overlappingLines =
-            lines
-                .Select(GetAllLinePoints)
-                .Where(c => c.Any())
-                .SelectMany(c => c.ToList())
-                .GroupBy(c => new {c.X, c.Y})
-                .Where(g => g.Count() > 1)
-                .ToList();
+        var overlappingLines = lines
+            .Select(GetAllLinePoints)
+            .Where(c => c.Any())
+            .SelectMany(c => c.ToList())
+            .GroupBy(c => new {c.X, c.Y})
+            .Where(g => g.Count() > 1)
+            .ToList();
 
         return overlappingLines.Count;
     }
@@ -22,7 +21,7 @@ public class PartTwo
     private IEnumerable<Coordinates> GetAllLinePoints(Line line)
     {
         var coordinates = new List<Coordinates>();
-  
+
         if (line.Start.X == line.End.X)
         {
             int minY = Math.Min(line.Start.Y, line.End.Y);

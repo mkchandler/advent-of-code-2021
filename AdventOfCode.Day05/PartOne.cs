@@ -4,14 +4,13 @@ public class PartOne
 {
     public int GetOverlapCount(IEnumerable<Line> lines)
     {
-        var overlappingLines =
-            lines
-                .Select(GetAllLinePoints)
-                .Where(c => c.Any())
-                .SelectMany(c => c.ToList())
-                .GroupBy(c => new {c.X, c.Y})
-                .Where(g => g.Count() > 1)
-                .ToList();
+        var overlappingLines = lines
+            .Select(GetAllLinePoints)
+            .Where(c => c.Any())
+            .SelectMany(c => c.ToList())
+            .GroupBy(c => new {c.X, c.Y})
+            .Where(g => g.Count() > 1)
+            .ToList();
 
         return overlappingLines.Count;
     }
